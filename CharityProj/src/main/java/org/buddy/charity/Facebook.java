@@ -9,7 +9,8 @@ public class Facebook {
 	private static final String client_id = "320773084683669";
 
 	// set this to your servlet URL for the authentication servlet/filter
-	private static String redirect_uri = "http://localhost:8080/login";
+	// FIXME get relative URL & also add to facebook app configuration dashboard
+	private static String redirect_uri = "http://localhost:8080/CharityProj/login";
 
 	// / set this to the list of extended permissions you want
 	private static final String[] perms = new String[] { "user_about_me",
@@ -34,7 +35,7 @@ public class Facebook {
 	}
 
 	public static String getLoginRedirectURL() {
-		return "https://graph.facebook.com/oauth?client_id="
+		return "https://www.facebook.com/dialog/oauth?client_id="
 				+ client_id + "&redirect_uri=" + redirect_uri
 				+ "&scope=" + StringUtils.arrayToCommaDelimitedString(perms);
 	}

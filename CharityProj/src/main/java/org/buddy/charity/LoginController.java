@@ -4,12 +4,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.Carrot2Test.FBDirector;
+import org.Carrot2Test.Keyword;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -30,6 +33,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Locale locale, Model model, HttpServletRequest request) {
 		Map<String, Object> map = model.asMap();
+		ArrayList<Keyword> keywords;
 
 		HttpSession session = request.getSession();
 		String code = request.getParameter("code");
@@ -62,6 +66,10 @@ public class LoginController {
 					map.put("accessToken", accessToken);
 					map.put("tokenExpires", expires);
 					
+					keywords = FBDirector.FetchFBInterests(accessToken);
+					String keywordsCSV = StringUtils.collectionToCommaDelimitedString(keywords);
+		       		System.out.println(keywordsCSV);
+		       		map.put("matcherKeywords", keywordsCSV);
 					// res.sendRedirect("http://www.onmydoorstep.com.au/");
 				} else {
 					throw new RuntimeException(
