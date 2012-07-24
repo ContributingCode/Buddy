@@ -4,12 +4,10 @@
 <head>
 	<title>Home</title>
 </head>
+<script> 
+	top.location.href='${facebookLoginURL}'
+</script>
 <body>
-<h1>
-	Hello world!  
-</h1>
 
-<P>Access token: ${accessToken}. </P>
-<P>Token expires on: ${tokenExpires}. </P>
 </body>
 </html>
