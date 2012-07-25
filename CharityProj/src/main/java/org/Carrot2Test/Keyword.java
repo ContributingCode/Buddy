@@ -16,5 +16,9 @@ public class Keyword{
 	public String toString() {
 		return "type:" + type + " keyword:" + keyword;
 	}
+	
+	public String getKeyword() {
+		return this.keyword;
+	}
 }
 
