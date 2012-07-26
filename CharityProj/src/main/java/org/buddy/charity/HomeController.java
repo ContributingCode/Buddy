@@ -1,13 +1,18 @@
 package org.buddy.charity;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
-import org.cloudfoundry.runtime.env.CloudEnvironment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpSession;
+
+import org.Carrot2Test.FBDirector;
+import org.Carrot2Test.Keyword;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,30 +23,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! the client locale is "+ locale.toString());
-		
-		CloudEnvironment env = new CloudEnvironment();
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+	public String home(Locale locale, Model model, HttpSession session) {
 		Map<String, Object> map = model.asMap();
-		if (env.getInstanceInfo()!=null) {
-			map.put("host", env.getInstanceInfo().getHost());
-			map.put("port", env.getInstanceInfo().getPort());
+		String accessToken = (String) session.getAttribute("accessToken");
+
+		if (accessToken == null) {
+			return "redirect:/login";
 		}
-		
+
+		ArrayList<Keyword> keywords = FBDirector.FetchFBInterests(accessToken);
+
+		for (Keyword word : keywords) {
+			try {
+				String parsedKeyword = URLEncoder.encode(word.getKeyword(), "UTF-8");
+				String searchURL = "http://www.charitynavigator.org/index.cfm?keyword_list="
+						+ parsedKeyword + "&Submit2=GO&bay=search.results";
+				// System.out.println(Facebook.readURL(new URL(searchURL)));
+				// ? How do I print them to the webpage? through jsp?
+				String html = Facebook.readURL(new URL(searchURL));
+				map.put("result", html);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
 		return "home";
 	}
 }

@@ -1,5 +1,10 @@
 package org.buddy.charity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
 import org.springframework.util.StringUtils;
 
 public class Facebook {
@@ -44,5 +49,15 @@ public class Facebook {
 		return "https://graph.facebook.com/oauth/access_token?client_id="
 				+ client_id + "&redirect_uri=" + redirect_uri
 				+ "&client_secret=" + secret + "&code=" + authCode;
+	}
+	
+	public static String readURL(URL url) throws IOException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		InputStream is = url.openStream();
+		int r;
+		while ((r = is.read()) != -1) {
+			baos.write(r);
+		}
+		return new String(baos.toByteArray());
 	}
 }
