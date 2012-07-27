@@ -1,14 +1,14 @@
 package org.buddy.charity;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.Carrot2Test.FBDirector;
@@ -23,38 +23,68 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+	private ArrayList<Keyword> keywords;
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Locale locale, Model model, HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/charity", method = RequestMethod.GET)
+	public void charity(Locale locale, Model model, HttpServletResponse response) {
+		for (Keyword word : keywords) {
+			String html = fetchCharity(word);
+			ArrayList<String> out = null;
+			
+			try {
+				out = HTMLParser.ParseHTMLByString(html);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			StringBuilder builder = new StringBuilder();
+			for (String s : out) {
+				builder.append(s);
+			}
+			
+			PrintWriter writer;
+			
+			try {
+				writer = response.getWriter();
+				writer.print(builder.toString());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		}
+		
+	}
+
+	private String fetchCharity(Keyword word) {
+		try {
+			String parsedKeyword = URLEncoder
+					.encode(word.getKeyword(), "UTF-8");
+			String searchURL = "http://www.charitynavigator.org/index.cfm?keyword_list="
+					+ parsedKeyword + "&Submit2=GO&bay=search.results";
+			return Facebook.readURL(new URL(searchURL));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpSession session) {
 		Map<String, Object> map = model.asMap();
 		String accessToken = (String) session.getAttribute("accessToken");
 
-		if (accessToken == null) {
-			return "redirect:/login";
-		}
-
-		ArrayList<Keyword> keywords = FBDirector.FetchFBInterests(accessToken);
-
-		for (Keyword word : keywords) {
-			try {
-				String parsedKeyword = URLEncoder.encode(word.getKeyword(), "UTF-8");
-				String searchURL = "http://www.charitynavigator.org/index.cfm?keyword_list="
-						+ parsedKeyword + "&Submit2=GO&bay=search.results";
-				// System.out.println(Facebook.readURL(new URL(searchURL)));
-				// ? How do I print them to the webpage? through jsp?
-				String html = Facebook.readURL(new URL(searchURL));
-				map.put("result", html);
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		if (accessToken != null) {
+			ArrayList<Keyword> keywords = FBDirector.FetchFBInterests(accessToken);
+			map.put("keywords", keywords);
+		} 
 
 		return "home";
 	}
