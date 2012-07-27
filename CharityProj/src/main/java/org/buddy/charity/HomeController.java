@@ -33,6 +33,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/charity", method = RequestMethod.GET)
 	public void charity(Locale locale, Model model, HttpServletResponse response) {
+		// TODO pass keyword as parameter
 		for (Keyword word : keywords) {
 			String html = fetchCharity(word);
 			ArrayList<String> out = null;
@@ -82,7 +83,7 @@ public class HomeController {
 		String accessToken = (String) session.getAttribute("accessToken");
 
 		if (accessToken != null) {
-			ArrayList<Keyword> keywords = FBDirector.FetchFBInterests(accessToken);
+			keywords = FBDirector.FetchFBInterests(accessToken);
 			map.put("keywords", keywords);
 		} 
 

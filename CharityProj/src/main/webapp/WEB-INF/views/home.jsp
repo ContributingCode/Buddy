@@ -26,31 +26,15 @@
 			<ul>
 				<li><a href="">Home</a></li>
 				<li><a href="login">Facebook Login</a></li>
+				<li><a href="analyze">Analyze</a></li>
+				<li><a href="findCharity">Find Charity</a></li>
 				<li><a href="logout">Logout</a></li>
 				<li><a href="#">Help</a></li>
 			</ul>
 		</nav>
 	</header>
 
-	<section id="MyGame">
-		<h1>
-			My Game
-			<button id="refreshMyGame">Refresh</button>
-		</h1>
-		<ul id="myGameUL">
-		</ul>
-		<h1>
-			Find Game
-			<button id="refreshFindGame">Refresh</button>
-		</h1>
-		<ul id="findGameUL">
-		</ul>
-	</section>
-
-	<article id="gb">Select a game to start</article>
-
-	<section id="JoinGame"></section>
-
+	
 	<footer>
 		<p>&copy; 2012 Team Buddy</p>
 	</footer>
