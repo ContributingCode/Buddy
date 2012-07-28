@@ -3,5 +3,5 @@
 	<form action="search" class="well form-search">
 	  <h1>TODO: display results</h1>
 	</form>	
-</div>	
+</div>
 <%@ include file="footer_template.html" %>

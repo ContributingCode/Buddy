@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Handles requests for the application home page.
@@ -42,6 +43,18 @@ public class HomeController {
 			keywords = FBDirector.FetchFBInterests(accessToken);
 			map.put("keywords", keywords);
 		} 
+	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String search(@RequestParam(value="searchKey", required=false) String searchKey,
+			Locale locale,
+			Model model,
+			HttpSession session) {
+		
+		session.invalidate();
+		
+		System.out.println("Search Key: " + searchKey); 
+		return "search";
 	}
 	
 	@RequestMapping(value = "/charity", method = RequestMethod.GET)
