@@ -1,7 +1,11 @@
 <%@ include file="header_template.html" %>
-<div class="span12">
-	<form action="search" class="well form-search">
-	  <h1>TODO: display results</h1>
-	</form>	
-</div>
+<ul class="thumbnails">
+  <li class="span3">
+    <div class="thumbnail">
+      <img src="http://placehold.it/260x180" alt="">
+      <h1>Organization a</h1>
+      <p>some texts from the result of charityNav html parser.</p>
+    </div>
+  </li>
+</ul>
 <%@ include file="footer_template.html" %>

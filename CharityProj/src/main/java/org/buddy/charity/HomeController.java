@@ -1,5 +1,7 @@
 package org.buddy.charity;
 
+import java.util.StringTokenizer;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
 	private ArrayList<Keyword> keywords;
+	private ArrayList<Keyword> keywords_searchKey = new ArrayList<Keyword>(); 
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model, HttpSession session) {
@@ -49,9 +52,55 @@ public class HomeController {
 	public String search(@RequestParam(value="searchKey", required=false) String searchKey,
 			Locale locale,
 			Model model,
-			HttpSession session) {
+			HttpSession session,
+			HttpServletResponse response) {
 		
 		session.invalidate();
+		Map<String, Object> map = model.asMap();
+		
+		//set keywords
+		StringTokenizer st1 = new StringTokenizer(searchKey, " "); 		
+		while (st1.hasMoreTokens()) {
+			// init for now
+			Keyword keyTmp = new Keyword("type", st1.nextToken(), 1, 1.0); 
+			keywords_searchKey.add(keyTmp); 
+		}
+		
+		for (Keyword word : keywords_searchKey) {
+			String html = fetchCharity(word);
+			//System.out.println("html: " + html); 
+			
+			ArrayList<String> out = new ArrayList<String>();
+			
+			try {
+				out = HTMLParser.ParseHTMLByString(html);
+				
+				for (int i=0; i<out.size(); i++) {
+					System.out.println("parseHTML: " + out.get(i)); 
+				}
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			StringBuilder builder = new StringBuilder();
+			for (String s : out) {
+				builder.append(s);
+			}
+			
+			PrintWriter writer;
+			
+			try {
+				writer = response.getWriter();
+				writer.print(builder.toString());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		}
+		
+		map.put("keywords_searchKey", keywords_searchKey); 
 		
 		System.out.println("Search Key: " + searchKey); 
 		return "search";
@@ -62,7 +111,8 @@ public class HomeController {
 		// TODO pass keyword as parameter
 		for (Keyword word : keywords) {
 			String html = fetchCharity(word);
-			ArrayList<String> out = null;
+			
+			ArrayList<String> out = new ArrayList<String>();
 			
 			try {
 				out = HTMLParser.ParseHTMLByString(html);
@@ -93,9 +143,10 @@ public class HomeController {
 	private String fetchCharity(Keyword word) {
 		try {
 			String parsedKeyword = URLEncoder
-					.encode(word.toString(), "UTF-8");
+					.encode(word.getKeyword(), "UTF-8");
 			String searchURL = "http://www.charitynavigator.org/index.cfm?keyword_list="
 					+ parsedKeyword + "&Submit2=GO&bay=search.results";
+			//System.out.println(searchURL); 
 			return Facebook.readURL(new URL(searchURL));
 		} catch (Exception e) {
 			e.printStackTrace();
