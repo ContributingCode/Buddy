@@ -1,4 +1,4 @@
-package org.Carrot2Test;
+package org.FBKeywordExtractor;
 
 public class Keyword{
 	
@@ -15,10 +15,6 @@ public class Keyword{
 	@Override
 	public String toString() {
 		return "type:" + type + " keyword:" + keyword;
-	}
-	
-	public String getKeyword() {
-		return this.keyword;
 	}
 }
 

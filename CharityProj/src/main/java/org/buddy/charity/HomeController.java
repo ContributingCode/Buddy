@@ -11,8 +11,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.Carrot2Test.FBDirector;
-import org.Carrot2Test.Keyword;
+import org.FBKeywordExtractor.FBDirector;
+import org.FBKeywordExtractor.Keyword;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,7 +67,7 @@ public class HomeController {
 	private String fetchCharity(Keyword word) {
 		try {
 			String parsedKeyword = URLEncoder
-					.encode(word.getKeyword(), "UTF-8");
+					.encode(word.toString(), "UTF-8");
 			String searchURL = "http://www.charitynavigator.org/index.cfm?keyword_list="
 					+ parsedKeyword + "&Submit2=GO&bay=search.results";
 			return Facebook.readURL(new URL(searchURL));

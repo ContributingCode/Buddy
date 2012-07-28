@@ -10,7 +10,7 @@
  * http://www.carrot2.org/carrot2.LICENSE
  */
 
-package org.Carrot2Test;
+package org.FBKeywordExtractor;
 
 import java.text.NumberFormat;
 import java.util.Collection;

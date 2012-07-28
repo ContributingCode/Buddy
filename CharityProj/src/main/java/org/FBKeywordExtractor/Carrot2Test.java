@@ -1,4 +1,4 @@
-package org.Carrot2Test;
+package org.FBKeywordExtractor;
 
 
 /*
@@ -65,7 +65,7 @@ public class Carrot2Test
     public static void main(String [] args)
     {
      	
-       		String accessToken = "AAACEdEose0cBAJwiQWzJ3aETO6BeX77tQrXKzIMUDPLMbvZAUegYtJVpYiZAGRUMOgUAZCNr0Kxi0OtBT0FHZAjjf5W4w0yqHXfGsFIBLHW9p6S4LtCE";
+       		String accessToken = "AAACEdEose0cBALfpCNaoZCBEgcoS2AbVimJdLkicO548dD2YZALIYUkP4aB5JcxdYlEQG69zUZArR5bXmm8Lm77lWaJ74UbtwUw5WfiPAlLF4zYXyq4";
     	    //String accessToken = "AAACEdEose0cBAMjEDFsIm9mfHG1U3xakcZBdh8tmqmKlO45cPTchVw6J9yuXnoeTPB1mWp7hpKQZClbDrnZCRGkMaCwGc22V3TmqKQnZBm1EgbTIENDL"; //Duy
        		
        		/*Connect to Facebook and extract the user's interests keywords*/

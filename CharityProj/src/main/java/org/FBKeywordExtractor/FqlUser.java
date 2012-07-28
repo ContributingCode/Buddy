@@ -1,4 +1,4 @@
-package org.Carrot2Test;
+package org.FBKeywordExtractor;
 
 import java.util.ArrayList;
 import java.util.Iterator;

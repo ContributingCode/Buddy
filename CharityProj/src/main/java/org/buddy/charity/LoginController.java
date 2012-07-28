@@ -12,8 +12,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.Carrot2Test.FBDirector;
-import org.Carrot2Test.Keyword;
+import org.FBKeywordExtractor.FBDirector;
+import org.FBKeywordExtractor.Keyword;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
