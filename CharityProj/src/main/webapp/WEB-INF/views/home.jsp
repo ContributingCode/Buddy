@@ -11,33 +11,44 @@
 <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="resources/css/style.css" />
-<script src="resources/js/main.js"></script>
+<!-- <link rel="stylesheet" href="resources/css/style.css" />
+<script src="resources/js/main.js"></script>  -->
+<link rel="stylesheet/less" href="resources/less/bootstrap.less">
+<script src="resources/js/less.js"></script>
 </head>
 
 <body>
+<div class="container">
 
-	<header>
-		<hgroup>
+		<!--  	<hgroup>
 			<h1>CharityMatch</h1>
 			<h2>VMware Hackathon 2012 - Team Buddy</h2>
-		</hgroup>
-		<nav>
-			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="login">Facebook Login</a></li>
-				<li><a href="analyze">Analyze</a></li>
-				<li><a href="findCharity">Find Charity</a></li>
-				<li><a href="logout">Logout</a></li>
-				<li><a href="#">Help</a></li>
-			</ul>
-		</nav>
-	</header>
+		</hgroup> -->
 
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="#"> CharityMatch </a>
+					<ul class="nav">
+						<li class="active"><a href="">Home</a></li>
+						<li class="active"><a href="login">Facebook Login</a></li>
+						<li class="active"><a href="analyze">Analyze</a></li>
+						<li class="active"><a href="findCharity">Find Charity</a></li>
+						<li class="active"><a href="logout">Logout</a></li>
+						<li class="active"><a href="#">Help</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	
-	<footer>
-		<p>&copy; 2012 Team Buddy</p>
-	</footer>
+		<div class="row-fluid">
+		<div class="span4">4</div>
+		<div class="span4">4</div>
+		<div class="span4">4</div>
+			<div class="span12">&copy; 2012 Team Buddy</div>
+		</div>
+	</div>
+
 
 	<div class="hidden" id="registerDiv">
 		<form action="Register" method="post" id="registerForm" class="registerForm">
