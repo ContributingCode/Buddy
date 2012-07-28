@@ -31,6 +31,19 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+	// returns 
+	@RequestMapping(value = "/analyze", method = RequestMethod.GET)
+	public void analyze(Locale locale, Model model, HttpServletResponse response, HttpSession session) {
+		Map<String, Object> map = model.asMap();
+		
+		String accessToken = (String) session.getAttribute("accessToken");
+
+		if (accessToken != null) {
+			keywords = FBDirector.FetchFBInterests(accessToken);
+			map.put("keywords", keywords);
+		} 
+	}
+	
 	@RequestMapping(value = "/charity", method = RequestMethod.GET)
 	public void charity(Locale locale, Model model, HttpServletResponse response) {
 		// TODO pass keyword as parameter
@@ -80,13 +93,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpSession session) {
 		Map<String, Object> map = model.asMap();
-		String accessToken = (String) session.getAttribute("accessToken");
-
-		if (accessToken != null) {
-			keywords = FBDirector.FetchFBInterests(accessToken);
-			map.put("keywords", keywords);
-		} 
-
 		return "home";
 	}
 }

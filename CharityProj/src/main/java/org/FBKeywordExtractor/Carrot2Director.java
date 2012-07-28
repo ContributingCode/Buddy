@@ -59,7 +59,7 @@ public class Carrot2Director {
     Collections.sort(clusters, comparator);
     
     for (Cluster cluster : clusters) {
-		result.add(new Keyword("Liked Pages", cluster.getLabel()));
+		result.add(new Keyword("Liked Pages", cluster.getLabel(), cluster.getDocuments().size(), cluster.getScore()));
 	}
    //ConsoleFormatter.displayClusters(clusters);
     

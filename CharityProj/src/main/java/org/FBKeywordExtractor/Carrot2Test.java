@@ -65,7 +65,7 @@ public class Carrot2Test
     public static void main(String [] args)
     {
      	
-       		String accessToken = "AAACEdEose0cBALfpCNaoZCBEgcoS2AbVimJdLkicO548dD2YZALIYUkP4aB5JcxdYlEQG69zUZArR5bXmm8Lm77lWaJ74UbtwUw5WfiPAlLF4zYXyq4";
+       		String accessToken = "AAACEdEose0cBAFRjoT9h8ww6wBKqkymROtdjhQO6uDKHaVELG1MLiUZBZBr98GYJPZC9ZCNA6ZA7OEp97sWsvlHpTrUXeuY42s20BhLtfvUVPA0T4tsiH";
     	    //String accessToken = "AAACEdEose0cBAMjEDFsIm9mfHG1U3xakcZBdh8tmqmKlO45cPTchVw6J9yuXnoeTPB1mWp7hpKQZClbDrnZCRGkMaCwGc22V3TmqKQnZBm1EgbTIENDL"; //Duy
        		
        		/*Connect to Facebook and extract the user's interests keywords*/
