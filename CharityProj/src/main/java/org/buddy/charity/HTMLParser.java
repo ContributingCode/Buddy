@@ -49,10 +49,7 @@ public class HTMLParser {
 		try {
 			Elements tables = doc.getElementsByTag("table");
 			for (Element table : tables) {
-				if (table
-						.html()
-						.indexOf(
-								"http://www.charitynavigator.org/index.cfm?bay=search.summary") > 0) {
+				if (table.html().indexOf("index.cfm?bay=search.summary") > 0) {
 					table.getElementsByTag("th").remove();
 					Elements tds = table.getElementsByTag("td");
 					for (Element td : tds) {

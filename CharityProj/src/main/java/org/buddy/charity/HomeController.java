@@ -58,49 +58,35 @@ public class HomeController {
 		session.invalidate();
 		Map<String, Object> map = model.asMap();
 		
-		//set keywords
-		StringTokenizer st1 = new StringTokenizer(searchKey, " "); 		
-		while (st1.hasMoreTokens()) {
-			// init for now
-			Keyword keyTmp = new Keyword("type", st1.nextToken(), 1, 1.0); 
-			keywords_searchKey.add(keyTmp); 
+		// init for now
+		Keyword keyTmp = new Keyword("type", searchKey, 1, 1.0); 
+		keywords_searchKey.add(keyTmp); 
+		
+		// only one word will be used
+		//for (Keyword word : keywords_searchKey) {
+		String html = fetchCharity(keyTmp);
+		System.out.println("html: " + html); 
+		
+		ArrayList<String> out = null;
+		ArrayList<String> url = new ArrayList<String>(); 
+		
+		try {
+			out = HTMLParser.ParseHTMLByString(html);
+			//System.out.println("out.size(): " + out.size()); 
+			
+			for (int i=0; i<out.size(); i++) {
+				 String oneURL = ""; 
+				 int start = out.get(i).indexOf('\"'); 				 
+				 int end = out.get(i).indexOf('\"', start+1); 
+				 oneURL = "http://www.charitynavigator.org/" + out.get(i).substring(start+1, end); 
+				 System.out.println("oneURL: " + oneURL); 
+			}
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
-		for (Keyword word : keywords_searchKey) {
-			String html = fetchCharity(word);
-			//System.out.println("html: " + html); 
-			
-			ArrayList<String> out = new ArrayList<String>();
-			
-			try {
-				out = HTMLParser.ParseHTMLByString(html);
-				
-				for (int i=0; i<out.size(); i++) {
-					System.out.println("parseHTML: " + out.get(i)); 
-				}
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			StringBuilder builder = new StringBuilder();
-			for (String s : out) {
-				builder.append(s);
-			}
-			
-			PrintWriter writer;
-			
-			try {
-				writer = response.getWriter();
-				writer.print(builder.toString());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		}
-		
-		map.put("keywords_searchKey", keywords_searchKey); 
+		map.put("urlStore", url); 
 		
 		System.out.println("Search Key: " + searchKey); 
 		return "search";
