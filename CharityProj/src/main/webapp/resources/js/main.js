@@ -6,6 +6,7 @@ $(function() {
 
 $(document).ready(function() {
 	$('#analyze').click(analyzeFaceBookProfile);
+	$('#charityButton').click(clickCharity);
 });
 
 function analyzeFaceBookProfile() {
@@ -24,6 +25,31 @@ function analyzeFaceBookProfile() {
 				$("#myKeywords").html(response);
 			} else {
 				$("#myKeywords").html("error");
+			}
+		}
+	});
+
+	return false;
+}
+
+
+function clickCharity() {
+	alert("here");
+	var action = "charity";
+	var form_data = {
+		is_ajax: 1
+	};
+
+	$.ajax({
+		type: "GET",
+		url: action,
+		data: form_data,
+		success: function(response)
+		{
+			if(response != 'error') {
+				$("#mySearchResults").html(response);
+			} else {
+				$("#mySearchResults").html("error");
 			}
 		}
 	});

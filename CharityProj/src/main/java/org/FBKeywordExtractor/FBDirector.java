@@ -29,7 +29,7 @@ public class FBDirector {
 		//System.out.println("User: " + users);
 		
 		/* Extract the keywords from the user facebook's profile*/
-		// keywords.addAll(users.get(0).toKeywordList());
+		keywords.addAll(users.get(0).toKeywordList());
 		
 		
 		/**

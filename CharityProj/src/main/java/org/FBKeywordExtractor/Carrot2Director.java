@@ -13,7 +13,7 @@ import org.carrot2.core.ProcessingResult;
 
 public class Carrot2Director {
 
-	final static int MIN_TOTAL_PAGES = 1; // The minimum total pages to start
+	final static int MIN_TOTAL_PAGES = 20; // The minimum total pages to start
 											// clustering
 	final static double SUPPORT_RATIO = 0.05; // The minimum support ratio
 	final static int CONFIDENCE_RATIO = 25; // The minimum confiddence (here
