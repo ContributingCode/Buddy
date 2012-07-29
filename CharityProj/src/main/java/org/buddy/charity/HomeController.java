@@ -89,18 +89,6 @@ public class HomeController {
 			Locale locale, Model model, HttpSession session,
 			HttpServletResponse response) {
 		Map<String, Object> map = model.asMap();
-		ArrayList<Keyword> keywords_searchKey = new ArrayList<Keyword>();
-		
-		// set keywords
-		StringTokenizer st1 = new StringTokenizer(searchKey, " ");
-		
-		while (st1.hasMoreTokens()) {
-			// init for now
-			Keyword keyTmp = new Keyword("type", st1.nextToken(), 1, 1.0);
-			keywords_searchKey.add(keyTmp);
-		}
-
-		System.out.println("Search Key: " + searchKey);
 		
 		// init for now
 		Keyword keyTmp = new Keyword("type", searchKey, 1, 1.0); 
