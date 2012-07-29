@@ -34,7 +34,6 @@ function analyzeFaceBookProfile() {
 
 
 function clickCharity() {
-	alert("here");
 	var action = "charity";
 	var form_data = {
 		is_ajax: 1
