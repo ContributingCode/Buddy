@@ -68,25 +68,61 @@ public class HomeController {
 		System.out.println("html: " + html); 
 		
 		ArrayList<String> out = null;
-		ArrayList<String> url = new ArrayList<String>(); 
+		ArrayList<Display> display = new ArrayList<Display>(); 
 		
 		try {
 			out = HTMLParser.ParseHTMLByString(html);
 			//System.out.println("out.size(): " + out.size()); 
 			
 			for (int i=0; i<out.size(); i++) {
+				 System.out.println("one parseHTML: " + out.get(i)); 
+				
 				 String oneURL = ""; 
-				 int start = out.get(i).indexOf('\"'); 				 
-				 int end = out.get(i).indexOf('\"', start+1); 
-				 oneURL = "http://www.charitynavigator.org/" + out.get(i).substring(start+1, end); 
+				 int startURL = out.get(i).indexOf('\"'); 				 
+				 int endURL = out.get(i).indexOf('\"', startURL+1); 
+				 oneURL = "http://www.charitynavigator.org/" + out.get(i).substring(startURL+1, endURL); 
 				 System.out.println("oneURL: " + oneURL); 
-			}
+				 
+				 String name = ""; 
+				 int startName = out.get(i).indexOf('>', out.get(i).indexOf("orgid=", out.get(i).indexOf("orgid=")+6)); 
+				 int endName = out.get(i).indexOf('<', startName+1); 
+				 name = out.get(i).substring(startName+1, endName); 
+				 System.out.println("name: " + name); 
+				 
+				 String score = ""; 
+				 int startScore = out.get(i).indexOf('\"', out.get(i).indexOf("title")); 
+				 int endScore = out.get(i).indexOf('\"', startScore+1); 
+				 score = out.get(i).substring(startScore+1, endScore); 
+				 System.out.println("score: " + score); 
+				 
+				 String location = ""; 
+				 int startLocation = out.get(i).indexOf('>', out.get(i).indexOf("location")); 
+				 int endLocation = out.get(i).indexOf('<', startLocation+1); 
+				 location = out.get(i).substring(startLocation+1, endLocation); 
+				 System.out.println("location: " + location); 
+				 
+				 String description = ""; 
+				 int startDesc = out.get(i).indexOf('>', out.get(i).indexOf("tagline")); 
+				 int endDesc = out.get(i).indexOf('<', startDesc+1);
+				 description = out.get(i).substring(startDesc+1, endDesc); 
+				 System.out.println("description: " + description); 
+				 
+				 String category = ""; 
+				 int startCategory = out.get(i).indexOf('>', out.get(i).lastIndexOf("category")); 
+				 int endCategory = out.get(i).indexOf('<', startCategory+1);
+				 category = out.get(i).substring(startCategory+1, endCategory); 
+				 System.out.println("category: " + category); 	
+				 
+				 Display d = new Display(name, score, location, description, category, oneURL); 
+				 display.add(d); 
+			}	 
+				 
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
-		map.put("urlStore", url); 
+		map.put("Display", display); 
 		
 		System.out.println("Search Key: " + searchKey); 
 		return "search";
