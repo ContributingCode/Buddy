@@ -1,3 +1,49 @@
+.myResult {
+	float: left;
+	background-color: silver;
+}
+
+.myTile {
+	background-color: #fff;
+	float: left;
+	width: 140px;
+	height: 140px;
+	border: 1px solid black;
+	margin: 10px;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.myTileContent {
+	background-color: #ccc;
+	float: left;
+	padding: 10px;
+	width: 120px;
+	height: 120px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.myKeywords {
+	float: left;
+	width: 200px;
+	margin: 0px;
+}
+
+.myRow {
+	// background-color: green;
+	float: left;
+	margin: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div.hidden {
+  display: none;
+}
+
+
 /*
   root element for the scrollable.
   when scrolling occurs this element stays still.
@@ -5,11 +51,9 @@
 .scrollable { /* required settings */
 	position: relative;
 	overflow: hidden;
-	width: 550px;
-	height: 120px;
+	width: 740px;
+	height: 182px;
 	/* custom decorations */
-	border: 1px solid #ccc;
-	background: url(../img/h300.png) repeat-x;
 }
 
 /*
@@ -26,20 +70,20 @@
 
 .items div {
 	float: left;
-	width: 680px;
+	width: 740px;
 }
 
 /* single scrollable item */
 .scrollable img {
 	float: left;
-	margin: 20px 5px 20px 21px;
 	background-color: #fff;
-	padding: 2px;
+	width: 140px;
+	height: 140px;
 	border: 1px solid #ccc;
-	width: 100px;
-	height: 75px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+	margin: 10px;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 /* active item */

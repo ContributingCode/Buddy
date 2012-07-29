@@ -29,7 +29,7 @@ public class FBDirector {
 		//System.out.println("User: " + users);
 		
 		/* Extract the keywords from the user facebook's profile*/
-		keywords.addAll(users.get(0).toKeywordList());
+		// keywords.addAll(users.get(0).toKeywordList());
 		
 		
 		/**
@@ -41,7 +41,8 @@ public class FBDirector {
 		//System.out.println("pages: " + pages);
 
 		/* Extract the keywords from the liked pages */
-		keywords.addAll(Carrot2Director.DoCluster(pages));
+		Carrot2Director carrot2 = new Carrot2Director();
+		keywords.addAll(carrot2.DoCluster(pages));
 		
 		System.out.println(keywords);
 		/* return the keywords*/

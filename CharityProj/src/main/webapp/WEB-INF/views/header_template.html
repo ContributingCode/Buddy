@@ -2,43 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!--  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet"
-	type="text/css" /> -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script> -->
+   
+
 <title>VMware Hackathon 2012 - Team Buddy - CharityMatch</title>
+
 <!-- The below script Makes IE understand the new html5 tags are there and applies our CSS to it -->
 <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="resources/css/style.css" />
-<script src="resources/js/main.js"></script>
+
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+
 <link rel="stylesheet/less" href="resources/less/bootstrap.less">
 <script src="resources/js/less.js"></script>
+
+<link rel="stylesheet/less" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="resources/css/style.css" />
+<script src="resources/js/main.js"></script>
 </head>
 
 <body>
 
-		<!--  	<hgroup>
+   <!--  	<hgroup>
 			<h1>CharityMatch</h1>
 			<h2>VMware Hackathon 2012 - Team Buddy</h2>
 		</hgroup> -->
 
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="navbar">
-					<div class="navbar-inner">
-						<div class="container">
-							<a class="brand" href="#"> CharityMatch </a>
-							<ul class="nav">
-								<li class="active"><a href="">Home</a></li>
-								<li class="active"><a href="login">Facebook Login</a></li>
-								<li class="active"><a href="analyze">Analyze</a></li>
-								<li class="active"><a href="result">Suggest My Charity</a></li>
-								<li class="active"><a href="logout">Logout</a></li>
-								<li class="active"><a href="#">Help</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+   <div class="navbar">
+      <div class="navbar-inner">
+         <div class="container">
+            <a class="brand" href="#"> CharityMatch </a>
+            <ul class="nav">
+               <li><a href="">Home</a></li>
+               <li><a href="login">Facebook Login</a></li>
+               <li><a href="#" id="analyze">Analyze My Profile</a></li>
+               <li><a href="result">Suggest Charities</a></li>
+               <li><a href="resources/doc/doc.pdf">Doc</a></li>
+            </ul>
+            <form class="navbar-form pull-right" action="search">
+               <input type="text" name="searchKey" class="search-query" placeholder="Search">
+            </form>
+
+         </div>
+      </div>
+   </div>
