@@ -1,57 +1,57 @@
-Jul 28, 2012 6:28:49 PM com.springsource.insight.tcserver.WeavingHelper findRepositoriesForClassPath
+Jul 28, 2012 8:24:19 PM com.springsource.insight.tcserver.WeavingHelper findRepositoriesForClassPath
 INFO: file:/home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/insight/collection-plugins/insight-plugin-tomcat-1.8.3.RELEASE.jar: aspects will be woven into the main Tomcat classloader
-Jul 28, 2012 6:28:49 PM com.springsource.insight.tcserver.WeavingHelper findRepositoriesForClassPath
+Jul 28, 2012 8:24:19 PM com.springsource.insight.tcserver.WeavingHelper findRepositoriesForClassPath
 INFO: file:/home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/insight/collection-plugins/insight-collection-1.8.3.RELEASE.jar: aspects will be woven into the main Tomcat classloader
-Jul 28, 2012 6:28:49 PM com.springsource.insight.tcserver.WeavingHelper findRepositoriesForClassPath
+Jul 28, 2012 8:24:19 PM com.springsource.insight.tcserver.WeavingHelper findRepositoriesForClassPath
 INFO: file:/home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/insight/collection-plugins/insight-plugin-jdbc-1.8.3.RELEASE.jar: aspects will be woven into the main Tomcat classloader
 ASPECTJ: aspectj.overweaving=true: overweaving switched ON
-Jul 28, 2012 6:28:50 PM com.springsource.tcserver.security.PropertyDecoder <init>
+Jul 28, 2012 8:24:20 PM com.springsource.tcserver.security.PropertyDecoder <init>
 INFO: tc Runtime property decoder using memory-based key
-Jul 28, 2012 6:28:50 PM com.springsource.tcserver.security.PropertyDecoder <init>
+Jul 28, 2012 8:24:20 PM com.springsource.tcserver.security.PropertyDecoder <init>
 INFO: tcServer Runtime property decoder has been initialized in 110 ms
-Jul 28, 2012 6:28:51 PM org.apache.coyote.AbstractProtocol init
+Jul 28, 2012 8:24:21 PM org.apache.coyote.AbstractProtocol init
 INFO: Initializing ProtocolHandler ["http-bio-8080"]
-Jul 28, 2012 6:28:51 PM com.springsource.tcserver.serviceability.rmi.JmxSocketListener init
-INFO: Started up JMX registry on 127.0.0.1:6969 in 109 ms
-Jul 28, 2012 6:28:51 PM org.apache.catalina.startup.Catalina load
-INFO: Initialization processed in 1495 ms
-Jul 28, 2012 6:28:51 PM org.apache.catalina.core.StandardService startInternal
+Jul 28, 2012 8:24:22 PM com.springsource.tcserver.serviceability.rmi.JmxSocketListener init
+INFO: Started up JMX registry on 127.0.0.1:6969 in 186 ms
+Jul 28, 2012 8:24:22 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1627 ms
+Jul 28, 2012 8:24:22 PM org.apache.catalina.core.StandardService startInternal
 INFO: Starting service Catalina
-Jul 28, 2012 6:28:51 PM org.apache.catalina.core.StandardEngine startInternal
+Jul 28, 2012 8:24:22 PM org.apache.catalina.core.StandardEngine startInternal
 INFO: Starting Servlet Engine: VMware vFabric tc Runtime 2.7.0.RELEASE/7.0.27.A.RELEASE
-Jul 28, 2012 6:28:51 PM org.apache.catalina.startup.HostConfig deployDescriptor
+Jul 28, 2012 8:24:22 PM org.apache.catalina.startup.HostConfig deployDescriptor
 INFO: Deploying configuration descriptor /home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/conf/Catalina/localhost/insight.xml
-Jul 28, 2012 6:28:52 PM com.springsource.insight.collection.tcserver.ltw.TomcatWeavingInsightClassLoader start
+Jul 28, 2012 8:24:22 PM com.springsource.insight.collection.tcserver.ltw.TomcatWeavingInsightClassLoader start
 INFO: Context [localhost|insight] will not be woven
-Jul 28, 2012 6:28:53 PM com.springsource.insight.InsightAgentPluginsHelper defaultInsightLogs
+Jul 28, 2012 8:24:23 PM com.springsource.insight.InsightAgentPluginsHelper defaultInsightLogs
 INFO: Using default insight.logs=/home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/insight/logs
-Jul 28, 2012 6:28:53 PM org.apache.catalina.core.ApplicationContext log
+Jul 28, 2012 8:24:24 PM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring root WebApplicationContext
-Jul 28, 2012 6:29:07 PM org.apache.catalina.core.ApplicationContext log
+Jul 28, 2012 8:24:39 PM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring FrameworkServlet 'Spring MVC Dispatcher Servlet'
-Jul 28, 2012 6:29:11 PM org.apache.catalina.startup.HostConfig deployDescriptor
+Jul 28, 2012 8:24:42 PM org.apache.catalina.startup.HostConfig deployDescriptor
 INFO: Deploying configuration descriptor /home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/conf/Catalina/localhost/CharityProj.xml
-Jul 28, 2012 6:29:11 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Jul 28, 2012 8:24:42 PM org.apache.catalina.startup.SetContextPropertiesRule begin
 WARNING: [SetContextPropertiesRule]{Context} Setting property 'source' to 'org.eclipse.jst.jee.server:CharityProj' did not find a matching property.
-Jul 28, 2012 6:29:13 PM com.springsource.insight.collection.strategies.CollectionStrategyRunner enable
+Jul 28, 2012 8:24:44 PM com.springsource.insight.collection.strategies.CollectionStrategyRunner enable
 INFO: Enabled Strategy com.springsource.insight.collection.strategies.EndPointOnlyCollectionStrategy@ee68cd7c
-Jul 28, 2012 6:29:13 PM com.springsource.insight.collection.strategies.CollectionStrategyRunner enable
+Jul 28, 2012 8:24:44 PM com.springsource.insight.collection.strategies.CollectionStrategyRunner enable
 INFO: Enabled Strategy com.springsource.insight.collection.strategies.PrefixExcludeCollectionStrategy@d813cb8b
-Jul 28, 2012 6:29:15 PM org.apache.catalina.core.ApplicationContext log
+Jul 28, 2012 8:24:46 PM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring root WebApplicationContext
 INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
-INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Sat Jul 28 18:29:17 EDT 2012]; root of context hierarchy
+INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Sat Jul 28 20:24:48 EDT 2012]; root of context hierarchy
 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
-INFO : org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@120e76d: defining beans []; root of factory hierarchy
-INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3516 ms
-Jul 28, 2012 6:29:18 PM org.apache.catalina.core.ApplicationContext log
+INFO : org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@160bf5e: defining beans []; root of factory hierarchy
+INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3312 ms
+Jul 28, 2012 8:24:50 PM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring FrameworkServlet 'appServlet'
 INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
-INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Sat Jul 28 18:29:18 EDT 2012]; parent: Root WebApplicationContext
+INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Sat Jul 28 20:24:50 EDT 2012]; parent: Root WebApplicationContext
 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
 INFO : org.springframework.context.annotation.ClassPathBeanDefinitionScanner - JSR-330 'javax.inject.Named' annotation found and supported for component scanning
 INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-INFO : org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7779d2: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,resultController,homeController,loginController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@120e76d
+INFO : org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e8f4e1: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,resultController,homeController,loginController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@160bf5e
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/result],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.buddy.charity.ResultController.showresult(java.util.Locale,org.springframework.ui.Model,javax.servlet.http.HttpSession)
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.buddy.charity.HomeController.search(java.lang.String,java.util.Locale,org.springframework.ui.Model,javax.servlet.http.HttpSession,javax.servlet.http.HttpServletResponse)
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.buddy.charity.HomeController.home(java.util.Locale,org.springframework.ui.Model,javax.servlet.http.HttpSession)
@@ -60,15 +60,15 @@ INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/charity],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void org.buddy.charity.HomeController.charity(java.util.Locale,org.springframework.ui.Model,javax.servlet.http.HttpServletResponse)
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.buddy.charity.LoginController.login(java.util.Locale,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest)
 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
-INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 3442 ms
-Jul 28, 2012 6:29:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 4877 ms
+Jul 28, 2012 8:24:54 PM org.apache.catalina.startup.HostConfig deployDirectory
 INFO: Deploying web application directory /home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/webapps/ROOT
-Jul 28, 2012 6:29:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jul 28, 2012 8:24:54 PM org.apache.catalina.startup.HostConfig deployDirectory
 INFO: Deploying web application directory /home/michael/springsource/vfabric-tc-server-developer-2.7.0.RELEASE/spring-insight-instance/webapps/manager
-Jul 28, 2012 6:29:22 PM org.apache.coyote.AbstractProtocol start
+Jul 28, 2012 8:24:55 PM org.apache.coyote.AbstractProtocol start
 INFO: Starting ProtocolHandler ["http-bio-8080"]
-Jul 28, 2012 6:29:22 PM org.apache.catalina.startup.Catalina start
-INFO: Server startup in 31095 ms
+Jul 28, 2012 8:24:55 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 33102 ms
 html: 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" 
@@ -131,7 +131,7 @@ function filterByKey() {
 <script type="text/javascript">
 	function Submitme() {
 		if (checkSubmit()) {
-			frmSubmit("thisForm4033");
+			frmSubmit("thisForm7551");
 		}
 	}
 
@@ -351,7 +351,7 @@ pageTracker._trackPageview();
 <div id="searchresults"> 
 
 
-<form action="http://www.charitynavigator.org/index.cfm" method="post" name="thisForm4033" id="thisForm4033" onsubmit="return checkSubmit()">
+<form action="http://www.charitynavigator.org/index.cfm" method="post" name="thisForm7551" id="thisForm7551" onsubmit="return checkSubmit()">
 
 
   <div class="results_parameters">Your search criteria
@@ -862,16 +862,85 @@ var zflag_nid="1427"; var zflag_cid="246/43"; var zflag_sid="33"; var zflag_widt
 
 </body>
 </html> 
-out.size(): 11
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=3283"> </a><a href="index.cfm?bay=search.summary&amp;orgid=3283">American Friends of Magen David Adom</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=3283"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">New York, NY</p> <p class="tagline">Saving lives in Israel</p> <p class="category">International : Single Country Support Organizations</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=3277"> </a><a href="index.cfm?bay=search.summary&amp;orgid=3277">American Red Cross</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=3277"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Washington, DC</p> <p class="tagline">Helping people prevent, prepare for and respond to emergencies</p> <p class="category">Human Services : Multipurpose Human Service Organizations</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=3341"> </a><a href="index.cfm?bay=search.summary&amp;orgid=3341">Bard College</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=3341"><img src="_gfx_/icons/stars/2stars.png" width="61" height="15" alt="2 stars" title="2 stars" /></a></p> <p class="location">Red Hook, NY</p> <p class="tagline">A place to think</p> <p class="category">Education : Private Liberal Arts Colleges</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=6545"> </a><a href="index.cfm?bay=search.summary&amp;orgid=6545">Children's Museum of Houston</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=6545"><img src="_gfx_/icons/stars/4stars.png" width="61" height="15" alt="4 stars" title="4 stars" /></a></p> <p class="location">Houston, TX</p> <p class="tagline">A playground for your mind</p> <p class="category">Arts, Culture, Humanities : Museums</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=9658"> </a><a href="index.cfm?bay=search.summary&amp;orgid=9658">Food Bank of Northwest Louisiana</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=9658"><img src="_gfx_/icons/stars/4stars.png" width="61" height="15" alt="4 stars" title="4 stars" /></a></p> <p class="location">Shreveport, LA</p> <p class="tagline">A primary resource for fighting hunger in Northwest Louisiana</p> <p class="category">Human Services : Food Banks, Food Pantries, and Food Distribution</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=7774"> </a><a href="index.cfm?bay=search.summary&amp;orgid=7774">Gilda's Club New York City</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=7774"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">New York, NY</p> <p class="tagline">Living with cancer? Come as you are.</p> <p class="category">Health : Diseases, Disorders, and Disciplines</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=5019"> </a><a href="index.cfm?bay=search.summary&amp;orgid=5019">National Hemophilia Foundation</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=5019"><img src="_gfx_/icons/stars/4stars.png" width="61" height="15" alt="4 stars" title="4 stars" /></a></p> <p class="location">New York, NY</p> <p class="tagline">For all bleeding and clotting disorders</p> <p class="category">Health : Diseases, Disorders, and Disciplines</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=4222"> </a><a href="index.cfm?bay=search.summary&amp;orgid=4222">New Jersey Symphony Orchestra</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=4222"><img src="_gfx_/icons/stars/2stars.png" width="61" height="15" alt="2 stars" title="2 stars" /></a></p> <p class="location">Newark, NJ</p> <p class="tagline">We commit with equal passion to artistic excellence and engagement with our communities</p> <p class="category">Arts, Culture, Humanities : Performing Arts</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=8925"> </a><a href="index.cfm?bay=search.summary&amp;orgid=8925">Two River Theater Company</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=8925"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Red Bank, NJ</p> <p class="tagline">Making great theatre that celebrates our humanity</p> <p class="category">Arts, Culture, Humanities : Performing Arts</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=7707"> </a><a href="index.cfm?bay=search.summary&amp;orgid=7707">United Animal Nations DBA RedRover</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=7707"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Sacramento, CA</p> <p class="tagline">Bringing animals from crisis to care.</p> <p class="category">Animals : Animal Rights, Welfare, and Services</p>
-parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=10047"> </a><a href="index.cfm?bay=search.summary&amp;orgid=10047">United Way of Greater Lima</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=10047"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Lima, OH</p> <p class="tagline">Live united</p> <p class="category">Public Benefit : Fundraising Organizations</p>
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=3283"> </a><a href="index.cfm?bay=search.summary&amp;orgid=3283">American Friends of Magen David Adom</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=3283"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">New York, NY</p> <p class="tagline">Saving lives in Israel</p> <p class="category">International : Single Country Support Organizations</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=3283
+name: American Friends of Magen David Adom
+score: 3 stars
+location: New York, NY
+description: Saving lives in Israel
+category: International : Single Country Support Organizations
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=3277"> </a><a href="index.cfm?bay=search.summary&amp;orgid=3277">American Red Cross</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=3277"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Washington, DC</p> <p class="tagline">Helping people prevent, prepare for and respond to emergencies</p> <p class="category">Human Services : Multipurpose Human Service Organizations</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=3277
+name: American Red Cross
+score: 3 stars
+location: Washington, DC
+description: Helping people prevent, prepare for and respond to emergencies
+category: Human Services : Multipurpose Human Service Organizations
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=3341"> </a><a href="index.cfm?bay=search.summary&amp;orgid=3341">Bard College</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=3341"><img src="_gfx_/icons/stars/2stars.png" width="61" height="15" alt="2 stars" title="2 stars" /></a></p> <p class="location">Red Hook, NY</p> <p class="tagline">A place to think</p> <p class="category">Education : Private Liberal Arts Colleges</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=3341
+name: Bard College
+score: 2 stars
+location: Red Hook, NY
+description: A place to think
+category: Education : Private Liberal Arts Colleges
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=6545"> </a><a href="index.cfm?bay=search.summary&amp;orgid=6545">Children's Museum of Houston</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=6545"><img src="_gfx_/icons/stars/4stars.png" width="61" height="15" alt="4 stars" title="4 stars" /></a></p> <p class="location">Houston, TX</p> <p class="tagline">A playground for your mind</p> <p class="category">Arts, Culture, Humanities : Museums</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=6545
+name: Children's Museum of Houston
+score: 4 stars
+location: Houston, TX
+description: A playground for your mind
+category: Arts, Culture, Humanities : Museums
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=9658"> </a><a href="index.cfm?bay=search.summary&amp;orgid=9658">Food Bank of Northwest Louisiana</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=9658"><img src="_gfx_/icons/stars/4stars.png" width="61" height="15" alt="4 stars" title="4 stars" /></a></p> <p class="location">Shreveport, LA</p> <p class="tagline">A primary resource for fighting hunger in Northwest Louisiana</p> <p class="category">Human Services : Food Banks, Food Pantries, and Food Distribution</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=9658
+name: Food Bank of Northwest Louisiana
+score: 4 stars
+location: Shreveport, LA
+description: A primary resource for fighting hunger in Northwest Louisiana
+category: Human Services : Food Banks, Food Pantries, and Food Distribution
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=7774"> </a><a href="index.cfm?bay=search.summary&amp;orgid=7774">Gilda's Club New York City</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=7774"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">New York, NY</p> <p class="tagline">Living with cancer? Come as you are.</p> <p class="category">Health : Diseases, Disorders, and Disciplines</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=7774
+name: Gilda's Club New York City
+score: 3 stars
+location: New York, NY
+description: Living with cancer? Come as you are.
+category: Health : Diseases, Disorders, and Disciplines
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=5019"> </a><a href="index.cfm?bay=search.summary&amp;orgid=5019">National Hemophilia Foundation</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=5019"><img src="_gfx_/icons/stars/4stars.png" width="61" height="15" alt="4 stars" title="4 stars" /></a></p> <p class="location">New York, NY</p> <p class="tagline">For all bleeding and clotting disorders</p> <p class="category">Health : Diseases, Disorders, and Disciplines</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=5019
+name: National Hemophilia Foundation
+score: 4 stars
+location: New York, NY
+description: For all bleeding and clotting disorders
+category: Health : Diseases, Disorders, and Disciplines
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=4222"> </a><a href="index.cfm?bay=search.summary&amp;orgid=4222">New Jersey Symphony Orchestra</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=4222"><img src="_gfx_/icons/stars/2stars.png" width="61" height="15" alt="2 stars" title="2 stars" /></a></p> <p class="location">Newark, NJ</p> <p class="tagline">We commit with equal passion to artistic excellence and engagement with our communities</p> <p class="category">Arts, Culture, Humanities : Performing Arts</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=4222
+name: New Jersey Symphony Orchestra
+score: 2 stars
+location: Newark, NJ
+description: We commit with equal passion to artistic excellence and engagement with our communities
+category: Arts, Culture, Humanities : Performing Arts
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=8925"> </a><a href="index.cfm?bay=search.summary&amp;orgid=8925">Two River Theater Company</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=8925"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Red Bank, NJ</p> <p class="tagline">Making great theatre that celebrates our humanity</p> <p class="category">Arts, Culture, Humanities : Performing Arts</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=8925
+name: Two River Theater Company
+score: 3 stars
+location: Red Bank, NJ
+description: Making great theatre that celebrates our humanity
+category: Arts, Culture, Humanities : Performing Arts
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=7707"> </a><a href="index.cfm?bay=search.summary&amp;orgid=7707">United Animal Nations DBA RedRover</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=7707"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Sacramento, CA</p> <p class="tagline">Bringing animals from crisis to care.</p> <p class="category">Animals : Animal Rights, Welfare, and Services</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=7707
+name: United Animal Nations DBA RedRover
+score: 3 stars
+location: Sacramento, CA
+description: Bringing animals from crisis to care.
+category: Animals : Animal Rights, Welfare, and Services
+one parseHTML: <h1><a href="index.cfm?bay=search.summary&amp;orgid=10047"> </a><a href="index.cfm?bay=search.summary&amp;orgid=10047">United Way of Greater Lima</a>&nbsp;&nbsp;&nbsp; </h1> <p class="rating"><a href="index.cfm?bay=search.summary&amp;orgid=10047"><img src="_gfx_/icons/stars/3stars.png" width="61" height="15" alt="3 stars" title="3 stars" /></a></p> <p class="location">Lima, OH</p> <p class="tagline">Live united</p> <p class="category">Public Benefit : Fundraising Organizations</p>
+oneURL: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=10047
+name: United Way of Greater Lima
+score: 3 stars
+location: Lima, OH
+description: Live united
+category: Public Benefit : Fundraising Organizations
 Search Key: red
+Jul 28, 2012 8:25:02 PM com.springsource.insight.collection.strategies.CollectionStrategyRunner enable
+INFO: Enabled Strategy com.springsource.insight.collection.strategies.EndPointOnlyCollectionStrategy@ee68cd7c
+Jul 28, 2012 8:25:02 PM com.springsource.insight.collection.strategies.CollectionStrategyRunner enable
+INFO: Enabled Strategy com.springsource.insight.collection.strategies.PrefixExcludeCollectionStrategy@d813cb8b
