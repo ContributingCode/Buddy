@@ -10,10 +10,10 @@
 <!--   </li> -->
 <!-- </ul> -->
 
+<div class="span3">
 <c:forEach items="${displayList}" var="display">
-   <ul class="cust">
-      <li class="cust-name">${display.name} xyz</li>
-   </ul>
+      <h1> class="cust-name">${display.name}</h1>
 </c:forEach>
+</div>
 
 <%@ include file="footer_template.html"%>
