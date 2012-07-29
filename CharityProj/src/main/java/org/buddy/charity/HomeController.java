@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
 	private ArrayList<Keyword> keywords;
-	private ArrayList<Keyword> keywords_searchKey = new ArrayList<Keyword>();
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model, HttpSession session) {
@@ -94,27 +93,44 @@ public class HomeController {
 			Locale locale, Model model, HttpSession session,
 			HttpServletResponse response) {
 		Map<String, Object> map = model.asMap();
-
+		ArrayList<Keyword> keywords_searchKey = new ArrayList<Keyword>();
+		
 		// set keywords
 		StringTokenizer st1 = new StringTokenizer(searchKey, " ");
+		
 		while (st1.hasMoreTokens()) {
 			// init for now
 			Keyword keyTmp = new Keyword("type", st1.nextToken(), 1, 1.0);
 			keywords_searchKey.add(keyTmp);
 		}
 
-		for (Keyword word : keywords_searchKey) {
+		System.out.println("Search Key: " + searchKey);
+		
+		// init for now
+		Keyword keyTmp = new Keyword("type", searchKey, 1, 1.0); 
+		
+		// only one word will be used
+		//for (Keyword word : keywords_searchKey) {
+		String html = fetchCharity(keyTmp);
+		System.out.println("html: " + html); 
+		
+		ArrayList<Display> display = this.parseHTMLToDisplay(html);
+		map.put("displayList", display); 
+		
+		System.out.println("Search Key: " + searchKey); 
+		return "search";
+	}
+
+	@RequestMapping(value = "/charity", method = RequestMethod.GET)
+	public void charity(Locale locale, Model model, HttpServletResponse response) {
+		// TODO pass keyword as parameter
+		for (Keyword word : keywords) {
 			String html = fetchCharity(word);
-			// System.out.println("html: " + html);
 
 			ArrayList<String> out = new ArrayList<String>();
 
 			try {
 				out = HTMLParser.ParseHTMLByString(html);
-
-				for (int i = 0; i < out.size(); i++) {
-					System.out.println("parseHTML: " + out.get(i));
-				}
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -137,19 +153,9 @@ public class HomeController {
 			break;
 		}
 
-		map.put("keywords_searchKey", keywords_searchKey);
+	}
 
-		System.out.println("Search Key: " + searchKey);
-		
-		// init for now
-		Keyword keyTmp = new Keyword("type", searchKey, 1, 1.0); 
-		keywords_searchKey.add(keyTmp); 
-		
-		// only one word will be used
-		//for (Keyword word : keywords_searchKey) {
-		String html = fetchCharity(keyTmp);
-		System.out.println("html: " + html); 
-		
+	private ArrayList<Display> parseHTMLToDisplay(String html) {
 		ArrayList<String> out = null;
 		ArrayList<Display> display = new ArrayList<Display>(); 
 		
@@ -205,46 +211,9 @@ public class HomeController {
 			e1.printStackTrace();
 		}
 		
-		map.put("Display", display); 
-		
-		System.out.println("Search Key: " + searchKey); 
-		return "search";
+		return display;
 	}
-
-	@RequestMapping(value = "/charity", method = RequestMethod.GET)
-	public void charity(Locale locale, Model model, HttpServletResponse response) {
-		// TODO pass keyword as parameter
-		for (Keyword word : keywords) {
-			String html = fetchCharity(word);
-
-			ArrayList<String> out = new ArrayList<String>();
-
-			try {
-				out = HTMLParser.ParseHTMLByString(html);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
-			StringBuilder builder = new StringBuilder();
-			for (String s : out) {
-				builder.append(s);
-			}
-
-			PrintWriter writer;
-
-			try {
-				writer = response.getWriter();
-				writer.print(builder.toString());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		}
-
-	}
-
+	
 	private String fetchCharity(Keyword word) {
 		try {
 			String parsedKeyword = URLEncoder

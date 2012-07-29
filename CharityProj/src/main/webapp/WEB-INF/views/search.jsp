@@ -1,4 +1,5 @@
-<%@ include file="header_template.html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="header_template.html"%>
 <!-- <ul class="thumbnails"> -->
 <!--   <li class="span3"> -->
 <!--     <div class="thumbnail"> -->
@@ -9,10 +10,10 @@
 <!--   </li> -->
 <!-- </ul> -->
 
-<c:forEach items="${Display}" var="entry">
-	<ul class="cust">
-	  <li class="cust-name">${entry.name} xyz </li>
-	</ul>
-</c:forEach> 
+<c:forEach items="${displayList}" var="display">
+   <ul class="cust">
+      <li class="cust-name">${display.name} xyz</li>
+   </ul>
+</c:forEach>
 
-<%@ include file="footer_template.html" %>
+<%@ include file="footer_template.html"%>
