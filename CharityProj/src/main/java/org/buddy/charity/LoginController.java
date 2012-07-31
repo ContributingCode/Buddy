@@ -30,6 +30,8 @@ public class LoginController {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(LoginController.class);
+	
+	private static Facebook facebook = Facebook.getInstance();
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Locale locale, Model model, HttpServletRequest request) {
@@ -42,13 +44,13 @@ public class LoginController {
 		String contextURL = request.getScheme() + "://"
 				+ request.getServerName() + ":" + request.getServerPort()
 				+ request.getContextPath() + "/login";
-		Facebook.setRedirectUri(contextURL);
+		facebook.setRedirectUri(contextURL);
 
 		if (StringUtils.hasText(code)) {
-			String authURL = Facebook.getAuthURL(code);
+			String authURL = facebook.getAuthURL(code);
 			try {
 				URL url = new URL(authURL);
-				String result = Facebook.readURL(url);
+				String result = Util.readURL(url);
 				String accessToken = null;
 				Integer expires = null;
 				String[] pairs = result.split("&");
@@ -76,10 +78,10 @@ public class LoginController {
 				throw new RuntimeException(e);
 			}
 		} else {
-			map.put("facebookLoginURL", Facebook.getLoginRedirectURL());
+			map.put("facebookLoginURL", facebook.getLoginRedirectURL());
 			return "login";
 		}
 
-		return "redirect:/";
+		return "redirect:/analyze";
 	}
 }

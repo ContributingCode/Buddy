@@ -31,6 +31,10 @@ public class FBDirector {
 		/* Extract the keywords from the user facebook's profile*/
 		keywords.addAll(users.get(0).toKeywordList());
 		
+		for (Keyword word : keywords) {
+			word.score = 100;
+		}
+		
 		
 		/**
    		 * Infer personal interests from the pages liked in facebook

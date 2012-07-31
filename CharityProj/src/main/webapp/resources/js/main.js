@@ -52,6 +52,8 @@ function clickCharity() {
 			}
 		}
 	});
+	
+	$(".scrollable").scrollable();
 
 	return false;
 }

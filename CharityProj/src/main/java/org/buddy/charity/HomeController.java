@@ -5,9 +5,13 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,57 +35,68 @@ public class HomeController {
 		return "redirect:/";
 	}
 
-	// returns
 	@RequestMapping(value = "/analyze", method = RequestMethod.GET)
-	public void analyze(Locale locale, Model model,
-			HttpServletResponse response, HttpSession session) {
+	public String analyze(
+			@RequestParam(value = "is_ajax", required = false) String isAjax,
+			Locale locale, Model model, HttpServletResponse response,
+			HttpSession session) {
 		String accessToken = (String) session.getAttribute("accessToken");
+		Map<String, Object> map = model.asMap();
 
 		if (accessToken != null) {
 			ArrayList<Keyword> keywords = FBDirector
 					.FetchFBInterests(accessToken);
 			session.setAttribute("fbKeywords", keywords);
+			map.put("fbKeywords", keywords);
 
-			try {
-				PrintWriter writer = response.getWriter();
-				/**
-				 * <div class="myTile"> <div class="myTileContent"> <span
-				 * class="label label-important">Education</span><br />
-				 * <br />
-				 * <span class="label label-success">Support</span> <span
-				 * class="badge badge-info">18%</span> <br />
-				 * <span class="label label-success">Confident</span> <span
-				 * class="badge badge-info">38%</span> </div> </div>
-				 */
-				StringBuilder builder = new StringBuilder();
+			if (isAjax == null) {
+				return "analyze";
+			} else {
+				analyze_ajax(response, keywords);
+			}
+		}
+		return null; // ajax call
+	}
 
-				for (Keyword word : keywords) {
-					builder.append("<div class=\"myTile\">");
-					builder.append("\n");
-					builder.append("<div class=\"myTileContent\">");
-					builder.append("\n");
-					builder.append("");
-					builder.append(word.getKeyword());
-					builder.append("<br/> <br/>");
-					builder.append("\n");
+	private void analyze_ajax(HttpServletResponse response,
+			ArrayList<Keyword> keywords) {
+		try {
+			PrintWriter writer = response.getWriter();
+			/**
+			 * <div class="myTile"> <div class="myTileContent"> <span
+			 * class="label label-important">Education</span><br />
+			 * <br />
+			 * <span class="label label-success">Support</span> <span
+			 * class="badge badge-info">18%</span> <br />
+			 * <span class="label label-success">Confident</span> <span
+			 * class="badge badge-info">38%</span> </div> </div>
+			 */
+			StringBuilder builder = new StringBuilder();
 
-//					builder.append("<span class=\"label label-success\">Score:");
-//					builder.append("</span> <span class=\"badge badge-info\">");
-//					builder.append(word.getScore());
-//					builder.append("</span>");
-					
-					
-					builder.append("\n");
-					builder.append("</div>\n");
-					builder.append("</div>\n");
-				}
+			for (Keyword word : keywords) {
+				builder.append("<div class=\"myTile\">");
+				builder.append("\n");
+				builder.append("<div class=\"myTileContent\">");
+				builder.append("\n");
+				builder.append("");
+				builder.append(word.getKeyword());
+				builder.append("<br/> <br/>");
+				builder.append("\n");
 
-				writer.print(builder.toString());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// builder.append("<span class=\"label label-success\">Score:");
+				// builder.append("</span> <span class=\"badge badge-info\">");
+				// builder.append(word.getScore());
+				// builder.append("</span>");
+
+				builder.append("\n");
+				builder.append("</div>\n");
+				builder.append("</div>\n");
 			}
 
+			writer.print(builder.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
@@ -109,15 +124,67 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/charity", method = RequestMethod.GET)
-	public void charity(Locale locale, Model model,
-			HttpServletResponse response, HttpSession session) {
+	public String charity(
+			@RequestParam(value = "is_ajax", required = false) String isAjax,
+			Locale locale, Model model, HttpServletResponse response,
+			HttpSession session) {
+		Map<String, Object> map = model.asMap();
+		Hashtable<Keyword, ArrayList<Display>> result = new Hashtable<Keyword, ArrayList<Display>>();
+		@SuppressWarnings("unchecked")
 		ArrayList<Keyword> keywords = (ArrayList<Keyword>) session
 				.getAttribute("fbKeywords");
-		StringBuilder builder = new StringBuilder();
-
 		for (Keyword word : keywords) {
 			String html = fetchCharity(word);
 			ArrayList<Display> displayList = parseHTMLToDisplay(html);
+			result.put(word, displayList);
+		}
+
+		String html = charity_ajax(result);
+
+		if (isAjax == null) {
+			map.put("myResult", html);
+			return "charity";
+		} else {
+
+			try {
+				PrintWriter writer = response.getWriter();
+				writer.print(html);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	private String charity_ajax(Hashtable<Keyword, ArrayList<Display>> result) {
+		StringBuilder builder = new StringBuilder();
+
+		Set<Keyword> keywords = result.keySet();
+
+		for (Keyword word : keywords) {
+			if (result.get(word).size() == 0) {
+				continue;
+			}
+
+			builder.append("<div style=\"clear:both\">\n");
+			builder.append("<div class=\"myKeyTile\">");
+			builder.append("\n");
+			builder.append("<div class=\"myTileContent\">");
+			builder.append("\n");
+			builder.append("");
+			builder.append(word.getKeyword());
+			builder.append("<br/> <br/>");
+			builder.append("\n");
+
+			 builder.append("<span class=\"label label-success\">Score:");
+			 builder.append("</span> <span class=\"badge badge-info\">");
+			 builder.append(word.getScore());
+			 builder.append("</span>");
+
+			builder.append("\n");
+			builder.append("</div>\n");
+			builder.append("</div>\n");
 
 			builder.append("<div class=\"myRow\">\n");
 			builder.append("<a class=\"prev browse left\"></a>\n");
@@ -135,7 +202,7 @@ public class HomeController {
 			 */
 			int i = 0;
 			builder.append("<div>\n");
-			for (Display display : displayList) {
+			for (Display display : result.get(word)) {
 				i++;
 				if (i % 4 == 0) {
 					builder.append("</div><div>\n");
@@ -145,8 +212,8 @@ public class HomeController {
 				builder.append("<a href=\"" + display.getUrl() + "\">");
 				builder.append(display.getName() + "</a><br /> <br />");
 
-				builder.append("<span class=\"label label-success\">Score:");
-				builder.append("</span> <span class=\"badge badge-info\">");
+				builder.append("<span class=\"label label-info\">Ratting:");
+				builder.append("</span> <span class=\"badge badge-important\">");
 				builder.append(display.getScore());
 				builder.append("</span>\n");
 
@@ -156,17 +223,10 @@ public class HomeController {
 			builder.append("</div>\n");
 
 			builder.append("</div></div>\n");
-			builder.append(" <a class=\"next browse right\"></a></div>\n");
+			builder.append(" <a class=\"next browse right\"></a></div></div>\n");
 		}
 
-		try {
-			PrintWriter writer = response.getWriter();
-			writer.print(builder.toString());
-			System.out.println(builder.toString());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		return builder.toString();
 
 	}
 
@@ -245,7 +305,7 @@ public class HomeController {
 			String searchURL = "http://www.charitynavigator.org/index.cfm?keyword_list="
 					+ parsedKeyword + "&Submit2=GO&bay=search.results";
 			// System.out.println(searchURL);
-			return Facebook.readURL(new URL(searchURL));
+			return Util.readURL(new URL(searchURL));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -255,6 +315,32 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpSession session) {
 		Map<String, Object> map = model.asMap();
+		String[] words = { "Food", "Children", "YMCA", "Red Cross", "Doctor",
+				"Cancer", "Veteran", "Parkinson", "Animal", "Diabetes",
+				"Health", "Education", "Volunteer", "Police", "Firefighter",
+				"Vietnam", "Leukemia" };
+
+		List<String> wordList = Arrays.asList(words);
+
+		// select 3 random number between 0 and words.size
+		Collections.shuffle(wordList);
+		ArrayList<Keyword> keywords = new ArrayList<Keyword>();
+		for (int i = 0; i < 3; i++) {
+			Keyword kw = new Keyword("Random", wordList.get(i), 100, 100);
+			keywords.add(kw);
+		}
+
+		Hashtable<Keyword, ArrayList<Display>> result = new Hashtable<Keyword, ArrayList<Display>>();
+		for (Keyword word : keywords) {
+			String html = fetchCharity(word);
+			ArrayList<Display> displayList = parseHTMLToDisplay(html);
+			result.put(word, displayList);
+		}
+
+		String html = charity_ajax(result);
+
+		map.put("myResult", html);
+
 		return "home";
 	}
 }
