@@ -12,3 +12,6 @@ view:
 
 viewgv:
 	evince doc.ps&
+
+clean:
+	rm -rf *.aux *.dvi *.log
