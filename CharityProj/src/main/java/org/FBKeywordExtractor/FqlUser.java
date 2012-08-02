@@ -112,14 +112,20 @@ public class FqlUser {
 			 
 			 /* Current Location */
 			 if (current_location != null) {
-				 String s = current_location.country + ", " + current_location.city;
-				 keywords.add(new Keyword("Current Location", s));
+				 if (current_location.country != null && current_location.city != null && !current_location.country.isEmpty() && !current_location.city.isEmpty())
+				 {
+					 String s = current_location.country + ", " + current_location.city;
+					 keywords.add(new Keyword("Current Location", s));
+				 }
 			 }
 			 
 			 /* Hometown Location */
-			 if (current_location != null) {
-				 String s = hometown_location.country + ", " + hometown_location.city;
-				 keywords.add(new Keyword("Hometown Location", s));
+			 if (hometown_location != null) {
+				 if (hometown_location.country != null && hometown_location.city != null && !hometown_location.country.isEmpty() && !hometown_location.city.isEmpty())
+				 {
+					 String s = hometown_location.country + ", " + hometown_location.city;
+					 keywords.add(new Keyword("Hometown Location", s));
+				 }
 			 }
 			 
 			 /* Music */
